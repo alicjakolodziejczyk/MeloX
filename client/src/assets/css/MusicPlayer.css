@@ -1,0 +1,17 @@
+.music-container {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  width: inherit;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.collapsed-btn {
+  background-color: transparent;
+  color: white;
+  border: none;
+  position: fixed;
+  right: 2vh;
+  padding-top: 1.5vh;
+  cursor: pointer;
+}

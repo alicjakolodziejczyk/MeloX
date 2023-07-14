@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  client:
+    build: ./client
+    container_name: client
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    tty: true
+    depends_on:
+      - server
+    networks:
+      - melox-network
+  
+  server:
+    build: ./server
+    container_name: server
+    restart: always
+    ports:
+      - "8080:8080"
+    stdin_open: true
+    tty: true
+    depends_on:
+      - db
+    networks:
+      - melox-network
+
+  db:
+    image: mongo
+    container_name: mongo-db
+    ports:
+      - "27017:27017"
+    volumes:
+      - D:\Studia\Semestr 6\Szkielety programistyczne\MeloX:\data\db
+    networks:
+      - melox-network
+
+networks:
+  melox-network:
+    driver: bridge
