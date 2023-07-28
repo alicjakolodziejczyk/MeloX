@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/user');
 
+router.get('/authenticate', userController.authenticate);
 router.put('/change-password', userController.changePassword);
 router.delete('/delete', userController.deleteUser);
 router.get('/account-details', userController.getAccountDetails);

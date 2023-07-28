@@ -1,8 +1,11 @@
 const { User, validate } = require('../models/user');
 const bcrypt = require('bcrypt');
 
+const authenticate = async (req, res) => {
+  res.status(200).send({ auth: true, message: "Authenticated!" });
+}
+
 const changePassword = async (req, res) => {
-  console.log(req.user._id)
   try {
     console.log(req.user._id)
     const user = await User.findById(req.user._id);
@@ -201,6 +204,7 @@ const getMostListenedSongs = async (req, res) => {
 }
 
 module.exports = {
+  authenticate,
   changePassword,
   deleteUser,
   getAccountDetails,

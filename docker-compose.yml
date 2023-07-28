@@ -2,8 +2,8 @@ version: '3'
 
 services:
   client:
-    build: ./client
-    container_name: client
+    build: ./web-client
+    container_name: web-client
     ports:
       - "3000:3000"
     stdin_open: true
